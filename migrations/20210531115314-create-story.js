@@ -1,31 +1,28 @@
 "use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable("spaces", {
+    await queryInterface.createTable("stories", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      title: {
+      name: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      description: {
+      content: {
         type: Sequelize.TEXT,
       },
-      backgroundColor: {
+      imageUrl: {
         type: Sequelize.STRING,
       },
-      color: {
-        type: Sequelize.STRING,
-      },
-      userId: {
+      spaceId: {
         type: Sequelize.INTEGER,
         allowNull: false,
         references: {
-          model: "users",
+          model: "spaces",
           key: "id",
         },
         onUpdate: "CASCADE",
@@ -42,6 +39,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable("spaces");
+    await queryInterface.dropTable("stories");
   },
 };

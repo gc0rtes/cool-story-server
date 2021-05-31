@@ -19,8 +19,6 @@ module.exports = (sequelize, DataTypes) => {
       backgroundColor: DataTypes.STRING,
       color: DataTypes.STRING,
       userId: { type: DataTypes.INTEGER, allowNull: false },
-      onUpdate: "CASCADE",
-      onDelete: "SET NULL",
     },
     {
       sequelize,
