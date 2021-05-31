@@ -32,6 +32,7 @@ http POST :4000/signup email="newuser@fastcompany.com" password="test1234" name=
 
 ```bash
 http POST :4000/login email="test@test.com" password="test1234"
+{"email":"test@test.com", "password":"test1234"}
 ```
 
 ## GET /me
@@ -59,7 +60,7 @@ http POST :4000/login email="test@test.com" password="test1234"
 ```
 
 ```bash
-http POST :4000/authorized_post_request Authorization:"Bearer <PASTE_YOUR_TOKEN_HERE>" hello="world" number:=0 cheesesArray:='["cheddar", "rochefort", "stilton"]'
+http POST :4000/authorized_post_request Authorization:"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTYyMjQ3MDQxNywiZXhwIjoxNjIyNDc3NjE3fQ.r3RGp2sZWvnfYeiOze2-Zn25ceWwuveimT3f5eEtoY0" hello="world" number:=0 cheesesArray:='["cheddar", "rochefort", "stilton"]'
 ```
 
 ```bash

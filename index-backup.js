@@ -1,15 +1,10 @@
-//Import Express
 const express = require("express");
-
-//Import routers files
 const loggerMiddleWare = require("morgan");
 const corsMiddleWare = require("cors");
 const { PORT } = require("./config/constants");
-
-//Import authMiddleware
+const authRouter = require("./routers/auth");
 const authMiddleWare = require("./auth/middleware");
 
-//Create a new express server named app
 const app = express();
 
 /**
@@ -155,13 +150,10 @@ app.post("/authorized_post_request", authMiddleWare, (req, res) => {
   });
 });
 
-const authRouter = require("./routers/auth");
 app.use("/", authRouter);
 
-const spacesRouter = require("./routers/spaces");
-app.use("/spaces", spacesRouter);
-
 // Listen for connections on specified port (default is port 4000)
+const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
